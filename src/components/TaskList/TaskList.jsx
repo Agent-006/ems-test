@@ -1,13 +1,14 @@
+import TaskListCard from "../Cards/TaskListCard";
+
 export default function TaskList() {
     return (
-        <div id="tasklist" className="h-full w-full flex items-center justify-start gap-5 overflow-x-auto">
-            <div className="flex-shrink-0 border-[1px] border-zinc-900 rounded-xl h-full w-80 bg-zinc-950 flex items-center justify-center"></div>
-            <div className="flex-shrink-0 border-[1px] border-zinc-900 rounded-xl h-full w-80 bg-zinc-950 flex items-center justify-center"></div>
-            <div className="flex-shrink-0 border-[1px] border-zinc-900 rounded-xl h-full w-80 bg-zinc-950 flex items-center justify-center"></div>
-            <div className="flex-shrink-0 border-[1px] border-zinc-900 rounded-xl h-full w-80 bg-zinc-950 flex items-center justify-center"></div>
-            <div className="flex-shrink-0 border-[1px] border-zinc-900 rounded-xl h-full w-80 bg-zinc-950 flex items-center justify-center"></div>
-            <div className="flex-shrink-0 border-[1px] border-zinc-900 rounded-xl h-full w-80 bg-zinc-950 flex items-center justify-center"></div>
-            <div className="flex-shrink-0 border-[1px] border-zinc-900 rounded-xl h-full w-80 bg-zinc-950 flex items-center justify-center"></div>
+        <div
+            id="tasklist"
+            className="h-full w-full flex items-center justify-start gap-5 overflow-x-auto"
+        >
+            <TaskListCard title={"Task Title"} desctiption={"This is a small description of the task."} priority={"High"}/>
+            <TaskListCard title={"Task Title"} desctiption={"This is a small description of the task."} priority={"Medium"}/>
+            <TaskListCard title={"Task Title"} desctiption={"This is a small description of the task."} priority={"Low"}/>
         </div>
     );
 }
