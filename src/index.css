@@ -19,3 +19,30 @@
 #tasklist::-webkit-scrollbar-thumb:hover {
     background: #212121;
 }
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #121212;
+    border-radius: 40px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #212121;
+}
+
+#picker::-webkit-calendar-picker-indicator {
+    background-color: #3F3F46;
+    border-radius: 10%;
+}
+
+#picker::-webkit-datetime-edit-fields-wrapper {
+    color: #8995AF;
+}
