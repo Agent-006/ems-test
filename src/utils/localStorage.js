@@ -184,6 +184,8 @@ const admin = [
     },
 ];
 
-export const setLocalStorage = () => {};
+export const setLocalStorage = () => {
+    
+};
 
 export const getLocalStorage = () => {};

@@ -2,7 +2,7 @@ import Button from "../../utils/lib/Button";
 
 export default function CreateTaskForm() {
     return (
-        <form className="flex flex-col w-[40%] p-5 text-zinc-200">
+        <form className="flex flex-col w-full p-5 text-zinc-200">
             <label className="mb-1 font-bold">Task Title</label>
             <input
                 type="text"
