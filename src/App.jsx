@@ -1,17 +1,51 @@
 import Login from "./components/Auth/Login";
 import EmployeeDashboard from "./components/DashBoard/EmployeeDashboard";
-
 import AdminDashboard from "./components/DashBoard/AdminDashboard";
-import { useState } from "react";
+
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "./context/AuthProvider";
 
 function App() {
     const [user, setUser] = useState(null);
 
+    const authData = useContext(AuthContext);
+    // console.log(authData.employees, authData.admin);
+
+    useEffect(() => {
+        if (authData) {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            if (loggedInUser) {
+                //FIXME: CHANGE IF DON'T WORKS
+                setUser(JSON.parse(loggedInUser).role);
+            }
+        }
+    }, [authData]);
+
     const handleLogin = (email, password) => {
-        if (email === "admin@me.com" && password === "123") {
+        if (
+            authData &&
+            authData.admin.find(
+                (adminData) =>
+                    adminData.email === email && adminData.password === password
+            )
+        ) {
             setUser("admin");
-        } else if (email === "user@me.com" && password === "123") {
+            localStorage.setItem(
+                "loggedInUser",
+                JSON.stringify({ role: "admin" })
+            );
+        } else if (
+            authData &&
+            authData.employees.find(
+                (employee) =>
+                    employee.email === email && employee.password === password
+            )
+        ) {
             setUser("user");
+            localStorage.setItem(
+                "loggedInUser",
+                JSON.stringify({ role: "employee" })
+            );
         } else {
             alert("Invalid credentials");
         }
