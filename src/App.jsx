@@ -7,6 +7,7 @@ import { AuthContext } from "./context/AuthProvider";
 
 function App() {
     const [user, setUser] = useState(null);
+    const [loggedInUserData, setLoggedInUserData] = useState(null);
 
     const authData = useContext(AuthContext);
     // console.log(authData.employees, authData.admin);
@@ -34,18 +35,20 @@ function App() {
                 "loggedInUser",
                 JSON.stringify({ role: "admin" })
             );
-        } else if (
-            authData &&
-            authData.employees.find(
+        } else if (authData) {
+            const employee = authData.employees.find(
                 (employee) =>
                     employee.email === email && employee.password === password
-            )
-        ) {
-            setUser("user");
-            localStorage.setItem(
-                "loggedInUser",
-                JSON.stringify({ role: "employee" })
             );
+
+            if (employee) {
+                setUser("employee");
+                setLoggedInUserData(employee);
+                localStorage.setItem(
+                    "loggedInUser",
+                    JSON.stringify({ role: "employee" })
+                );
+            }
         } else {
             alert("Invalid credentials");
         }
@@ -55,7 +58,11 @@ function App() {
         <>
             {user === null && <Login handleLogin={handleLogin} />}
             <div className="bg-zinc-950 h-screen w-full flex justify-center items-center text-white overflow-hidden">
-                {user === "admin" ? <AdminDashboard /> : <EmployeeDashboard />}
+                {user === "admin" ? (
+                    <AdminDashboard />
+                ) : (
+                    <EmployeeDashboard data={loggedInUserData} />
+                )}
             </div>
         </>
     );

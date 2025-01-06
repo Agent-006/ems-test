@@ -1,6 +1,7 @@
 const employees = [
     {
         id: 1,
+        name: "John Doe",
         email: "employee1@example.com",
         password: "123",
         tasks: [
@@ -35,9 +36,16 @@ const employees = [
                 failed: false,
             },
         ],
+        taskCount: {
+            active: 2,
+            newTask: 1,
+            completed: 1,
+            failed: 0,
+        },
     },
     {
         id: 2,
+        name: "Jane Smith",
         email: "employee2@example.com",
         password: "123",
         tasks: [
@@ -62,9 +70,16 @@ const employees = [
                 failed: false,
             },
         ],
+        taskCount: {
+            active: 2,
+            newTask: 1,
+            completed: 0,
+            failed: 0,
+        },
     },
     {
         id: 3,
+        name: "Alice Johnson",
         email: "employee3@example.com",
         password: "123",
         tasks: [
@@ -99,9 +114,16 @@ const employees = [
                 failed: false,
             },
         ],
+        taskCount: {
+            active: 1,
+            newTask: 1,
+            completed: 1,
+            failed: 1,
+        },
     },
     {
         id: 4,
+        name: "Michael Brown",
         email: "employee4@example.com",
         password: "123",
         tasks: [
@@ -136,9 +158,16 @@ const employees = [
                 failed: false,
             },
         ],
+        taskCount: {
+            active: 1,
+            newTask: 1,
+            completed: 1,
+            failed: 0,
+        },
     },
     {
         id: 5,
+        name: "Emily Davis",
         email: "employee5@example.com",
         password: "123",
         tasks: [
@@ -173,12 +202,19 @@ const employees = [
                 failed: true,
             },
         ],
+        taskCount: {
+            active: 1,
+            newTask: 1,
+            completed: 2,
+            failed: 1,
+        },
     },
 ];
 
 const admin = [
     {
         id: 1,
+        name: "Admin User",
         email: "admin@example.com",
         password: "123",
     },
@@ -193,5 +229,7 @@ export const getLocalStorage = () => {
     const employees_data = JSON.parse(localStorage.getItem("employees"));
     const admin_data = JSON.parse(localStorage.getItem("admin"));
 
-    return employees_data && admin_data ? { employees: employees_data, admin: admin_data } : null;
+    return employees_data && admin_data
+        ? { employees: employees_data, admin: admin_data }
+        : null;
 };
