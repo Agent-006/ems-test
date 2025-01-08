@@ -3,27 +3,26 @@ import Header from "../../utils/lib/Header";
 import DashboardTileCard from "../Cards/DashboardTileCard";
 import TaskList from "../TaskList/TaskList";
 
-const tileCardName = [
-    {
-        title: "New Task",
-        number: 0,
-    },
-    {
-        title: "Completed",
-        number: 3,
-    },
-    {
-        title: "Accepted",
-        number: 0,
-    },
-    {
-        title: "Failed",
-        number: 1,
-    },
-];
-
 export default function EmployeeDashboard({ data }) {
     console.log(data);
+    const tileCardName = [
+        {
+            title: "New Task",
+            number: data?.taskCount?.newTask || 0,
+        },
+        {
+            title: "Completed",
+            number: data?.taskCount?.completed || 0,
+        },
+        {
+            title: "Accepted",
+            number: data?.taskCount?.active || 0,
+        },
+        {
+            title: "Failed",
+            number: data?.taskCount?.failed || 0,
+        },
+    ];
     return (
         <div className="h-screen w-full flex flex-col items-center justify-center p-4 gap-3">
             <div className="h-20 w-full flex flex-col items-center justify-center bg-zinc-950 border-[.5px] border-zinc-900 p-4 gap-3 rounded-lg">

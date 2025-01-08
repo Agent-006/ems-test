@@ -16,8 +16,11 @@ function App() {
     useEffect(() => {
         if (authData) {
             const loggedInUser = localStorage.getItem("loggedInUser");
+
             if (loggedInUser) {
-                setUser(JSON.parse(loggedInUser).role);
+                const userData = JSON.parse(loggedInUser);
+                setUser(userData.role);
+                setLoggedInUserData(userData.data);
             }
         }
     }, [authData]);
@@ -34,7 +37,7 @@ function App() {
                 setLoggedInUserData(admin);
                 localStorage.setItem(
                     "loggedInUser",
-                    JSON.stringify({ role: "admin" })
+                    JSON.stringify({ role: "admin", data: admin })
                 );
             }
         } else {
@@ -52,7 +55,7 @@ function App() {
                 setLoggedInUserData(employee);
                 localStorage.setItem(
                     "loggedInUser",
-                    JSON.stringify({ role: "employee" })
+                    JSON.stringify({ role: "employee", data: employee })
                 );
             }
         } else {

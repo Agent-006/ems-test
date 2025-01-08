@@ -8,21 +8,16 @@ export default function TaskList({ data }) {
             id="tasklist"
             className="h-full w-full flex items-center justify-start gap-5 overflow-x-auto"
         >
-            <TaskListCard
-                title={"Task Title"}
-                desctiption={"This is a small description of the task."}
-                priority={"Low"}
-            />
-            <TaskListCard
-                title={"Task Title"}
-                desctiption={"This is a small description of the task."}
-                priority={"Medium"}
-            />
-            <TaskListCard
-                title={"Task Title"}
-                desctiption={"This is a small description of the task."}
-                priority={"High"}
-            />
+            {data?.tasks?.map((task, index) => (
+                <TaskListCard
+                    key={index}
+                    title={task.title}
+                    desctiption={task.description}
+                    date={task.date}
+                    category={task.category}
+                    priority={"Low"}
+                />
+            ))}
         </div>
     );
 }
