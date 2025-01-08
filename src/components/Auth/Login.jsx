@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Button from "../../utils/lib/Button";
 
-export default function Login({handleLogin}) {
+export default function Login({onLogin}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -12,7 +12,7 @@ export default function Login({handleLogin}) {
         e.preventDefault();
         //TODO: remove console.log
         console.log("Email: ", email, "\n", "Password: ", password);
-        handleLogin(email, password);
+        onLogin(email, password);
         
         setEmail("");
         setPassword("");
