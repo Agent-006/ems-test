@@ -15,7 +15,7 @@ export default function TaskList({ data }) {
                     desctiption={task.description}
                     date={task.date}
                     category={task.category}
-                    priority={"Low"}
+                    status={task.status}
                 />
             ))}
         </div>

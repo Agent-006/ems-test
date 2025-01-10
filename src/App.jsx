@@ -10,8 +10,10 @@ function App() {
     const [loggedInUserData, setLoggedInUserData] = useState(null);
 
     const authData = useContext(AuthContext);
-    console.log(authData);
+    //TODO: remove these console.log statements
+    // console.log(authData);
     // console.log(authData.employees, authData.admin);
+    // setLocalStorage();
 
     useEffect(() => {
         if (authData) {
