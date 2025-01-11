@@ -40,12 +40,7 @@ export default function TaskListCard({
                     <h2 className="text-xl font-bold text-white">{title}</h2>
                     <p className="text-sm text-gray-400 mt-2">{desctiption}</p>
                 </div>
-                {/* TODO: make these buttons conditional, according to the task status */}
-                {/* if accepted then show 2 buttons, else show only 1 button,
-                    if newtask then accept task ka button dikhao
-                    if completed to kuch mat dikhao
-                    if failed to bhi kuch mat dikhao
-                 */}
+                
                 <div className="absolute bottom-2 right-4 flex space-x-6">
                     {statusKey === "newTask" && (
                         <>
