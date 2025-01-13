@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import Button from "./Button";
 
-export default function Header({ adminOrEmployee, data }) {
+export default function Header({ adminOrEmployee, data, setUser }) {
     const handleLogout = () => {
         const loggedInUser = localStorage.getItem("loggedInUser");
         if (loggedInUser) {
             localStorage.removeItem("loggedInUser");
-            window.location.reload();
+            setUser(null);
+            // window.location.reload();
         }
     };
     console.log(data);

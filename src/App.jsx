@@ -25,7 +25,7 @@ function App() {
                 setLoggedInUserData(userData.data);
             }
         }
-    }, [authData]);
+    }, [authData, loggedInUserData]);
 
     const handleLogin = (email, password) => {
         if (authData) {
@@ -68,9 +68,9 @@ function App() {
     return (
         <>
             <div className="bg-zinc-950 h-screen w-full flex justify-center items-center text-white overflow-hidden">
-                {user === "admin" && <AdminDashboard data={loggedInUserData} />}
+                {user === "admin" && <AdminDashboard setUser={setUser} data={loggedInUserData} />}
                 {user === "employee" && (
-                    <EmployeeDashboard data={loggedInUserData} />
+                    <EmployeeDashboard setUser={setUser} data={loggedInUserData} />
                 )}
                 {user === null && <Login onLogin={handleLogin} />}
             </div>
