@@ -8,7 +8,6 @@ export default function AllTaskTileCard({
     status,
     taskCount,
 }) {
-    console.log(taskCount);
     const statusColor = {
         active: "bg-blue-500",
         newTask: "bg-gray-500",

@@ -6,10 +6,8 @@ import CreateTaskForm from "../Forms/CreateTaskForm";
 import { AuthContext } from "../../context/AuthProvider";
 
 export default function AdminDashboard({ data, setUser }) {
-    console.log(data);
 
     const [userData] = useContext(AuthContext);
-    console.log(userData.employees);
 
     return (
         <div className="h-[90%] w-full flex flex-col items-center justify-center p-4 gap-3">

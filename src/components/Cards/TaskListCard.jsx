@@ -6,7 +6,6 @@ export default function TaskListCard({
     category,
     status,
 }) {
-    console.log(status);
 
     const statusColor = {
         active: "bg-blue-500",

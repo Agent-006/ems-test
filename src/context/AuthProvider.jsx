@@ -14,8 +14,6 @@ export default function AuthProvider({ children }) {
         setUserData({ employees, admin });
     }, [setUserData]);
 
-    console.log(userData);
-
     return (
         <div>
             <AuthContext.Provider value={[userData, setUserData]}>

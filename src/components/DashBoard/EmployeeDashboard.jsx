@@ -4,7 +4,6 @@ import DashboardTileCard from "../Cards/DashboardTileCard";
 import TaskList from "../TaskList/TaskList";
 
 export default function EmployeeDashboard({ data, setUser }) {
-    console.log(data);
     const tileCardName = [
         {
             title: "New Task",

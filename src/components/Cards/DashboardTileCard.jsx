@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export default function DashboardTileCard({ data, number, title, className }) {
+export default function DashboardTileCard({ number, title, className }) {
     const titleColors = {
         NewTask: "text-zinc-300",
         Completed: "text-green-500",
@@ -8,8 +8,6 @@ export default function DashboardTileCard({ data, number, title, className }) {
     };
 
     const getColor = (title) => titleColors[title] || "text-xl font-medium";
-
-    console.log(data);
 
     return (
         <div

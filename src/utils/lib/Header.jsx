@@ -10,7 +10,6 @@ export default function Header({ adminOrEmployee, data, setUser }) {
             // window.location.reload();
         }
     };
-    console.log(data);
     return (
         <div className="flex items-center justify-between w-full">
             {adminOrEmployee === "Admin" ? (

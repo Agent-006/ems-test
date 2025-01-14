@@ -13,8 +13,6 @@ export default function CreateTaskForm() {
 
     const [task, setTask] = useState({});
 
-    console.log(userData);
-
     // submit the task
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,12 +39,10 @@ export default function CreateTaskForm() {
                 if (employee.name === assignedTo) {
                     employee.tasks.push(task);
                     employee.taskCount.newTask += 1;
-                    console.log(employee.tasks);
                 }
             });
             setUserData({ employees: data, admin: userData.admin });
             localStorage.setItem("employees", JSON.stringify(data));
-            console.log(data);
         }
 
 

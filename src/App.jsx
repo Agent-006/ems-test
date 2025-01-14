@@ -4,6 +4,7 @@ import AdminDashboard from "./components/DashBoard/AdminDashboard";
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./context/AuthProvider";
+import { setLocalStorage } from "./utils/localStorage";
 
 function App() {
     const [userData] = useContext(AuthContext);
@@ -11,13 +12,10 @@ function App() {
     const [user, setUser] = useState(null);
     const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-    //TODO: remove these console.log statements
-    // console.log(userData);
-    // console.log(authData.employees, authData.admin);
-    // setLocalStorage();
-
-    useEffect(() => {
-        if (userData) {
+    useEffect(() => { 
+        if (!userData) {
+            setLocalStorage(); 
+        } else {
             const loggedInUser = localStorage.getItem("loggedInUser");
 
             if (loggedInUser) {

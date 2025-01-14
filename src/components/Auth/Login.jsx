@@ -10,8 +10,6 @@ export default function Login({onLogin}) {
     // Form submission handling
     const handleSubmit = (e) => {
         e.preventDefault();
-        //TODO: remove console.log
-        console.log("Email: ", email, "\n", "Password: ", password);
         onLogin(email, password);
         
         setEmail("");

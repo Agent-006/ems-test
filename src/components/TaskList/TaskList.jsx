@@ -2,7 +2,6 @@
 import TaskListCard from "../Cards/TaskListCard";
 
 export default function TaskList({ data }) {
-    console.log(data);
     return (
         <div
             id="tasklist"
