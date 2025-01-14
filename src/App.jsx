@@ -6,30 +6,31 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./context/AuthProvider";
 
 function App() {
+    const [userData] = useContext(AuthContext);
+    
     const [user, setUser] = useState(null);
     const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-    const authData = useContext(AuthContext);
     //TODO: remove these console.log statements
-    // console.log(authData);
+    // console.log(userData);
     // console.log(authData.employees, authData.admin);
     // setLocalStorage();
 
     useEffect(() => {
-        if (authData) {
+        if (userData) {
             const loggedInUser = localStorage.getItem("loggedInUser");
 
             if (loggedInUser) {
-                const userData = JSON.parse(loggedInUser);
-                setUser(userData.role);
-                setLoggedInUserData(userData.data);
+                const loggedInUserData = JSON.parse(loggedInUser);
+                setUser(loggedInUserData.role);
+                setLoggedInUserData(loggedInUserData.data);
             }
         }
-    }, [authData, loggedInUserData]);
+    }, [userData]);
 
     const handleLogin = (email, password) => {
-        if (authData) {
-            const admin = authData.admin.find(
+        if (userData) {
+            const admin = userData.admin.find(
                 (adminData) =>
                     adminData.email === email && adminData.password === password
             );
@@ -46,8 +47,8 @@ function App() {
             alert("Invalid credentials");
         }
 
-        if (authData) {
-            const employee = authData.employees.find(
+        if (userData) {
+            const employee = userData.employees.find(
                 (employee) =>
                     employee.email === email && employee.password === password
             );

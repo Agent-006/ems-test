@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 
 import { createContext, useEffect, useState } from "react";
@@ -11,13 +12,13 @@ export default function AuthProvider({ children }) {
     useEffect(() => {
         const { employees, admin } = getLocalStorage();
         setUserData({ employees, admin });
-    }, []);
+    }, [setUserData]);
 
     console.log(userData);
 
     return (
         <div>
-            <AuthContext.Provider value={userData}>
+            <AuthContext.Provider value={[userData, setUserData]}>
                 {children}
             </AuthContext.Provider>
         </div>

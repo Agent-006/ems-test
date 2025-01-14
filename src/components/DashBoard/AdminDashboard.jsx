@@ -8,8 +8,8 @@ import { AuthContext } from "../../context/AuthProvider";
 export default function AdminDashboard({ data, setUser }) {
     console.log(data);
 
-    const authData = useContext(AuthContext);
-    console.log(authData.employees);
+    const [userData] = useContext(AuthContext);
+    console.log(userData.employees);
 
     return (
         <div className="h-[90%] w-full flex flex-col items-center justify-center p-4 gap-3">
@@ -24,7 +24,7 @@ export default function AdminDashboard({ data, setUser }) {
                     id="tasklist"
                     className="flex flex-wrap h-full w-1/2 items-start justify-center gap-5 py-4 px-5 overflow-y-scroll"
                 >
-                    {authData.employees.map((employee) =>
+                    {userData.employees.map((employee) =>
                         (employee.tasks.map((task, index) => (
                             <AllTaskTileCard
                             key={index}
